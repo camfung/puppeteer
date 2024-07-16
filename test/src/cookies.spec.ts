@@ -501,7 +501,7 @@ describe('Cookie specs', () => {
     });
     it('should set secure same-site cookies from a frame', async () => {
       const {httpsServer, browser, close} = await launch({
-        ignoreHTTPSErrors: true,
+        acceptInsecureCerts: true,
       });
 
       try {

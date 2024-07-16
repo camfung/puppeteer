@@ -706,7 +706,7 @@ describe('Launcher specs', function () {
           await close();
         }
       });
-      it('should support ignoreHTTPSErrors option', async () => {
+      it('should support acceptInsecureCerts option', async () => {
         const {puppeteer, httpsServer, browser, close} = await launch(
           {},
           {
@@ -718,7 +718,7 @@ describe('Launcher specs', function () {
           const browserWSEndpoint = browser.wsEndpoint();
           using remoteBrowser = await puppeteer.connect({
             browserWSEndpoint,
-            ignoreHTTPSErrors: true,
+            acceptInsecureCerts: true,
             protocol: browser.protocol,
           });
           const page = await remoteBrowser.newPage();

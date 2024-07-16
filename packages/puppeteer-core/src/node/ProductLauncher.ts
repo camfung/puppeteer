@@ -87,7 +87,7 @@ export abstract class ProductLauncher {
       handleSIGINT = true,
       handleSIGTERM = true,
       handleSIGHUP = true,
-      ignoreHTTPSErrors = false,
+      acceptInsecureCerts = false,
       defaultViewport = DEFAULT_VIEWPORT,
       slowMo = 0,
       timeout = 30000,
@@ -158,7 +158,7 @@ export abstract class ProductLauncher {
             protocolTimeout,
             slowMo,
             defaultViewport,
-            ignoreHTTPSErrors,
+            acceptInsecureCerts,
           }
         );
       } else {
@@ -182,7 +182,7 @@ export abstract class ProductLauncher {
             browserCloseCallback,
             {
               defaultViewport,
-              ignoreHTTPSErrors,
+              acceptInsecureCerts,
             }
           );
         } else {
@@ -190,7 +190,7 @@ export abstract class ProductLauncher {
             this.product,
             cdpConnection,
             [],
-            ignoreHTTPSErrors,
+            acceptInsecureCerts,
             defaultViewport,
             browserProcess.nodeProcess,
             browserCloseCallback,
@@ -338,19 +338,19 @@ export abstract class ProductLauncher {
     closeCallback: BrowserCloseCallback,
     opts: {
       defaultViewport: Viewport | null;
-      ignoreHTTPSErrors?: boolean;
+      acceptInsecureCerts?: boolean;
     }
   ): Promise<Browser> {
     const BiDi = await import(/* webpackIgnore: true */ '../bidi/bidi.js');
     const bidiConnection = await BiDi.connectBidiOverCdp(connection, {
-      acceptInsecureCerts: opts.ignoreHTTPSErrors ?? false,
+      acceptInsecureCerts: opts.acceptInsecureCerts ?? false,
     });
     return await BiDi.BidiBrowser.create({
       connection: bidiConnection,
       closeCallback,
       process: browserProcess.nodeProcess,
       defaultViewport: opts.defaultViewport,
-      ignoreHTTPSErrors: opts.ignoreHTTPSErrors,
+      acceptInsecureCerts: opts.acceptInsecureCerts,
     });
   }
 
@@ -365,7 +365,7 @@ export abstract class ProductLauncher {
       protocolTimeout: number | undefined;
       slowMo: number;
       defaultViewport: Viewport | null;
-      ignoreHTTPSErrors?: boolean;
+      acceptInsecureCerts?: boolean;
     }
   ): Promise<Browser> {
     const browserWSEndpoint =
@@ -386,7 +386,7 @@ export abstract class ProductLauncher {
       closeCallback,
       process: browserProcess.nodeProcess,
       defaultViewport: opts.defaultViewport,
-      ignoreHTTPSErrors: opts.ignoreHTTPSErrors,
+      acceptInsecureCerts: opts.acceptInsecureCerts,
     });
   }
 
