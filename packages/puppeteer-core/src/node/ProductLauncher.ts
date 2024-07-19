@@ -66,11 +66,6 @@ export abstract class ProductLauncher {
   /**
    * @internal
    */
-  protected actualBrowserRevision?: string;
-
-  /**
-   * @internal
-   */
   constructor(puppeteer: PuppeteerNode, product: Product) {
     this.puppeteer = puppeteer;
     this.#product = product;
@@ -216,15 +211,6 @@ export abstract class ProductLauncher {
   abstract executablePath(channel?: ChromeReleaseChannel): string;
 
   abstract defaultArgs(object: BrowserLaunchArgumentOptions): string[];
-
-  /**
-   * Set only for Firefox, after the launcher resolves the `latest` revision to
-   * the actual revision.
-   * @internal
-   */
-  getActualBrowserRevision(): string | undefined {
-    return this.actualBrowserRevision;
-  }
 
   /**
    * @internal
