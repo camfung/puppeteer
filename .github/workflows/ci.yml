@@ -41,7 +41,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
         env:
-          PUPPETEER_SKIP_DOWNLOADS: true
+          PUPPETEER_SKIP_DOWNLOAD: true
       # Set up GitHub Actions caching for Wireit.
       - uses: google/wireit@4aad131006ea85c1e42af927534ebb13426dd730 # setup-github-actions-caching/v1.0.2
       - name: Check code
@@ -137,7 +137,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
         env:
-          PUPPETEER_SKIP_DOWNLOADS: true
+          PUPPETEER_SKIP_DOWNLOAD: true
       - name: Run tests
         run: npm run doctest
 
@@ -186,7 +186,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
         env:
-          PUPPETEER_SKIP_DOWNLOADS: true
+          PUPPETEER_SKIP_DOWNLOAD: true
       # Set up GitHub Actions caching for Wireit.
       - uses: google/wireit@4aad131006ea85c1e42af927534ebb13426dd730 # setup-github-actions-caching/v1.0.2
       - name: Build packages
@@ -268,7 +268,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
         env:
-          PUPPETEER_SKIP_DOWNLOADS: true
+          PUPPETEER_SKIP_DOWNLOAD: true
       # Set up GitHub Actions caching for Wireit.
       - uses: google/wireit@4aad131006ea85c1e42af927534ebb13426dd730 # setup-github-actions-caching/v1.0.2
       - name: Build packages
@@ -336,7 +336,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
         env:
-          PUPPETEER_SKIP_DOWNLOADS: true
+          PUPPETEER_SKIP_DOWNLOAD: true
       # Set up GitHub Actions caching for Wireit.
       - uses: google/wireit@4aad131006ea85c1e42af927534ebb13426dd730 # setup-github-actions-caching/v1.0.2
       - name: Setup cache for Chrome binary
@@ -379,7 +379,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
         env:
-          PUPPETEER_SKIP_DOWNLOADS: true
+          PUPPETEER_SKIP_DOWNLOAD: true
       - name: Build packages
         run: npm run build --workspace puppeteer
       - name: Pack packages
@@ -409,7 +409,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
         env:
-          PUPPETEER_SKIP_DOWNLOADS: true
+          PUPPETEER_SKIP_DOWNLOAD: true
       - name: Run unit tests
         run: |
           npm run unit -w puppeteer-core -w puppeteer --if-present
@@ -430,7 +430,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
         env:
-          PUPPETEER_SKIP_DOWNLOADS: true
+          PUPPETEER_SKIP_DOWNLOAD: true
       - name: Run tests
         run: npm run unit --workspace @puppeteer/ng-schematics
 
@@ -469,7 +469,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
         env:
-          PUPPETEER_SKIP_DOWNLOADS: true
+          PUPPETEER_SKIP_DOWNLOAD: true
       - name: Setup cache for Chrome binary
         uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
         with:
@@ -523,7 +523,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
         env:
-          PUPPETEER_SKIP_DOWNLOADS: true
+          PUPPETEER_SKIP_DOWNLOAD: true
       - name: Run tests
         run: npm run test --workspace @puppeteer/browsers
 
