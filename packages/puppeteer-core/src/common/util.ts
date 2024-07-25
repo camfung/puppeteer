@@ -20,6 +20,7 @@ import {
 import type {CDPSession} from '../api/CDPSession.js';
 import {packageVersion} from '../generated/version.js';
 import {assert} from '../util/assert.js';
+import {mergeUint8Arrays} from '../util/typedArray.js';
 
 import {debug} from './Debug.js';
 import {TimeoutError} from './Errors.js';
@@ -211,23 +212,6 @@ export async function importFSPromises(): Promise<typeof FS> {
     }
   }
   return fs;
-}
-
-function mergeUint8Arrays(mergable: Uint8Array[]): Uint8Array {
-  let length = 0;
-  mergable.forEach(item => {
-    length += item.length;
-  });
-
-  // Create a new array with total length and merge all source arrays.
-  const mergedArray = new Uint8Array(length);
-  let offset = 0;
-  mergable.forEach(item => {
-    mergedArray.set(item, offset);
-    offset += item.length;
-  });
-
-  return mergedArray;
 }
 
 /**
