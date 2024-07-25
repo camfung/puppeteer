@@ -2278,9 +2278,9 @@ export abstract class Page extends EventEmitter<PageEvents> {
   /**
    * @internal
    */
-  async _maybeWriteBufferToFile(
+  async _maybeWriteTypedArrayToFile(
     path: string | undefined,
-    buffer: Uint8Array
+    typedArray: Uint8Array
   ): Promise<void> {
     if (!path) {
       return;
@@ -2288,7 +2288,7 @@ export abstract class Page extends EventEmitter<PageEvents> {
 
     const fs = await importFSPromises();
 
-    await fs.writeFile(path, buffer);
+    await fs.writeFile(path, typedArray);
   }
 
   /**
@@ -2593,7 +2593,7 @@ export abstract class Page extends EventEmitter<PageEvents> {
       return data;
     }
 
-    function base64ToArrayBuffer(base64: string) {
+    function base64ToTypedArray(base64: string) {
       const binaryString = atob(base64);
       const bytes = new Uint8Array(binaryString.length);
       for (let i = 0; i < binaryString.length; i++) {
@@ -2601,9 +2601,9 @@ export abstract class Page extends EventEmitter<PageEvents> {
       }
       return bytes;
     }
-    const buffer = base64ToArrayBuffer(data);
-    await this._maybeWriteBufferToFile(options.path, buffer);
-    return buffer;
+    const typedArray = base64ToTypedArray(data);
+    await this._maybeWriteTypedArrayToFile(options.path, typedArray);
+    return typedArray;
   }
 
   /**

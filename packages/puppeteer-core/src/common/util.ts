@@ -233,7 +233,7 @@ function mergeUint8Arrays(mergable: Uint8Array[]): Uint8Array {
 /**
  * @internal
  */
-export async function getReadableAsBuffer(
+export async function getReadableAsTypedArray(
   readable: ReadableStream<Uint8Array>,
   path?: string
 ): Promise<Uint8Array | null> {
