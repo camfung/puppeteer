@@ -2594,7 +2594,7 @@ export abstract class Page extends EventEmitter<PageEvents> {
       return data;
     }
 
-    const typedArray = stringToTypedArray(data);
+    const typedArray = stringToTypedArray(data, true);
     await this._maybeWriteTypedArrayToFile(options.path, typedArray);
     return typedArray;
   }
