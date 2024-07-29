@@ -20,6 +20,13 @@ All notable changes to this project will be documented in this file. See [standa
   * dependencies
     * @puppeteer/browsers bumped from 1.5.1 to 1.6.0
 
+## [22.14.1](https://github.com/puppeteer/puppeteer/compare/puppeteer-core-v22.14.0...puppeteer-core-v22.14.1) (2024-07-29)
+
+
+### Bug Fixes
+
+* **webdriver:** implement request timings ([#12831](https://github.com/puppeteer/puppeteer/issues/12831)) ([409d244](https://github.com/puppeteer/puppeteer/commit/409d244aed480fbb5254f852afb16bd101692f9a))
+
 ## [22.14.0](https://github.com/puppeteer/puppeteer/compare/puppeteer-core-v22.13.1...puppeteer-core-v22.14.0) (2024-07-25)
 
 
